@@ -20,7 +20,7 @@ $(document).ready(function() {
     if (!authToken) return;
 
     try {
-      const response = await fetch('http://localhost:5000/notes', {
+      const response = await fetch('https://new-note-app-qknv.onrender.com/notes', {
         headers: { 'Authorization': authToken }
       });
       const notes = await response.json();
@@ -47,7 +47,7 @@ $(document).ready(function() {
   const archiveNote = async (event) => {
     const noteId = $(event.target).data('id');
     try {
-      await fetch(`http://localhost:5000/notes/${noteId}/archive`, {
+      await fetch(`https://new-note-app-qknv.onrender.com/notes/${noteId}/archive`, {
         method: 'POST',
         headers: { 'Authorization': authToken }
       });
@@ -60,7 +60,7 @@ $(document).ready(function() {
   const deleteNote = async (event) => {
     const noteId = $(event.target).data('id');
     try {
-      await fetch(`http://localhost:5000/notes/${noteId}/delete`, {
+      await fetch(`https://new-note-app-qknv.onrender.com/notes/${noteId}/delete`, {
         method: 'DELETE',
         headers: { 'Authorization': authToken }
       });
@@ -84,7 +84,7 @@ $(document).ready(function() {
     const username = $('#registerUsername').val();
     const password = $('#registerPassword').val();
     try {
-      const response = await fetch('http://localhost:5000/users/register', {
+      const response = await fetch('https://new-note-app-qknv.onrender.com/users/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password })
@@ -105,7 +105,7 @@ $(document).ready(function() {
     const username = $('#loginUsername').val();
     const password = $('#loginPassword').val();
     try {
-      const response = await fetch('http://localhost:5000/users/login', {
+      const response = await fetch('https://new-note-app-qknv.onrender.com/users/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password })
@@ -132,7 +132,7 @@ $(document).ready(function() {
     const tags = $('#noteTags').val().split(',').map(tag => tag.trim());
     const backgroundColor = $('#noteColor').val();
     try {
-      const response = await fetch('http://localhost:5000/notes', {
+      const response = await fetch('https://new-note-app-qknv.onrender.com/notes', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
